@@ -1,6 +1,6 @@
 #!/bin/bash
-# A script to mount Time Machine backups
-# v1 Aug 31, 2024
+# A script to mount Time Machine backups and optionally run a colleciton tool such as uac
+# v1.1 Sept 12, 2024
 
 # Check if the script is run as root
 if [[ $EUID -ne 0 ]]; then
@@ -38,3 +38,10 @@ else
     echo "Failed to mount snapshot."
     exit 1
 fi
+
+# Run collector (ex: uac) against mounted snapshot
+#cd /<path_to_uac>/uac-2.9.1/
+#./uac -p full -a \!live_response/\* /tmp --mount-point /tmp/tm_snapshot --operating-system macos
+
+# Cleanup
+umount /tmp/tm_snapshot
