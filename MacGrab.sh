@@ -119,7 +119,7 @@ fi
 
 #ditto -X --rsrc -c --keepParent --acl --extattr --clone "$mount_point" "$OUT_DIR"
 #ditto -X --rsrc -c --keepParent --acl --extattr --clone "$mount_point" "$OUT_DIR" 2>&1
-#rsync -atErlptgoh --super --one-file-system -P --stats --delete "$mount_point" "$OUT_DIR" --log-file "$TARGET_DIR/$TARGET_CONTAINER.rsync.log"
+rsync -atErlptgoh --super --one-file-system -P --stats --delete "$mount_point" "$OUT_DIR" --log-file "$TARGET_DIR/$TARGET_CONTAINER.rsync.log"
 
 # run uac against snapshot
 #cd /<path_to_uac>/uac-2.9.1/
