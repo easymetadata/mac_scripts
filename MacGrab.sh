@@ -2,6 +2,7 @@
 # A script that mounts a Time Machine backup automatically without security limitations
 # Optionally, you can colleciton files or run a tool such as uac
 # Note: Requires Terminal.app has Full Disk Access as well as sudo privs
+# Synatax: sh ./MacGrab.sh /Volumes/TargetDrive
 # v1.0  March 1, 2025
 
 # Function to display usage information
