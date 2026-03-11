@@ -1,6 +1,8 @@
 # MacGrab
 
-A macOS Bash script for forensic data collection. It creates a local Time Machine snapshot, mounts it read-only, and copies all data into a self-sizing APFS sparse image on an external or target drive — no third-party tools required.
+A macOS Bash script for forensic data collection. It creates a local Time Machine snapshot, mounts it read-only, and copies all data into a self-sizing container (APFS sparse image by default). This can be on an mounted external or internal drive.
+
+This is living off the land. No third-party tools required.
 
 ---
 
