@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#1e1e2e" rx="14"/>
+
+  <!-- Title -->
+  <text x="480" y="38" text-anchor="middle" font-size="17" font-weight="bold" fill="#cdd6f4" letter-spacing="1">MacGrab — Process Flow</text>
+
+  <!-- ═══════════════════════════════════════════
+       ROW 1  — Steps 1–5  (y=90)
+  ════════════════════════════════════════════ -->
+
+  <!-- Step 1 -->
+  <rect x="30"  y="90" width="140" height="72" rx="10" fill="#7c6af7"/>
+  <text x="100" y="118" text-anchor="middle" font-size="22" fill="#fff">①</text>
+  <text x="100" y="136" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Preflight</text>
+  <text x="100" y="151" text-anchor="middle" font-size="10" fill="#ddd">root + macOS ≥ 10.14</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="170" y1="126" x2="200" y2="126" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Step 2 -->
+  <rect x="200" y="90" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="270" y="118" text-anchor="middle" font-size="22" fill="#fff">②</text>
+  <text x="270" y="136" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Create Snapshot</text>
+  <text x="270" y="151" text-anchor="middle" font-size="10" fill="#ddd">tmutil localsnapshot</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="340" y1="126" x2="370" y2="126" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Step 3 -->
+  <rect x="370" y="90" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="440" y="118" text-anchor="middle" font-size="22" fill="#fff">③</text>
+  <text x="440" y="136" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Mount Snapshot</text>
+  <text x="440" y="151" text-anchor="middle" font-size="10" fill="#ddd">/tmp/tm_snapshot</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="510" y1="126" x2="540" y2="126" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Step 4 -->
+  <rect x="540" y="90" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="610" y="118" text-anchor="middle" font-size="22" fill="#fff">④</text>
+  <text x="610" y="136" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Calculate Size</text>
+  <text x="610" y="151" text-anchor="middle" font-size="10" fill="#ddd">usage + 40-unit buffer</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="680" y1="126" x2="710" y2="126" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Step 5 -->
+  <rect x="710" y="90" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="780" y="118" text-anchor="middle" font-size="22" fill="#fff">⑤</text>
+  <text x="780" y="136" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Create Image</text>
+  <text x="780" y="151" text-anchor="middle" font-size="10" fill="#ddd">.sparseimage (APFS)</text>
+
+  <!-- Elbow arrow 5 → row 2 right side -->
+  <polyline points="850,126 920,126 920,270 850,270" fill="none" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- ═══════════════════════════════════════════
+       ROW 2  — Steps 6–9  (y=234)
+  ════════════════════════════════════════════ -->
+
+  <!-- Step 6 -->
+  <rect x="710" y="234" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="780" y="262" text-anchor="middle" font-size="22" fill="#fff">⑥</text>
+  <text x="780" y="280" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Attach Image</text>
+  <text x="780" y="295" text-anchor="middle" font-size="10" fill="#ddd">/Volumes/TargetFolder</text>
+
+  <!-- Arrow 6→7 (right-to-left) -->
+  <line x1="710" y1="270" x2="680" y2="270" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arrl)"/>
+
+  <!-- Step 7 -->
+  <rect x="540" y="234" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="610" y="262" text-anchor="middle" font-size="22" fill="#fff">⑦</text>
+  <text x="610" y="280" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Copy Data</text>
+  <text x="610" y="295" text-anchor="middle" font-size="10" fill="#ddd">rsync snapshot → image</text>
+
+  <!-- Arrow 7→8 -->
+  <line x1="540" y1="270" x2="510" y2="270" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arrl)"/>
+
+  <!-- Step 8 -->
+  <rect x="370" y="234" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="440" y="262" text-anchor="middle" font-size="22" fill="#fff">⑧</text>
+  <text x="440" y="280" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Write Log</text>
+  <text x="440" y="295" text-anchor="middle" font-size="10" fill="#ddd">.rsync.log</text>
+
+  <!-- Arrow 8→9 -->
+  <line x1="370" y1="270" x2="340" y2="270" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arrl)"/>
+
+  <!-- Step 9 — Optional UAC (dashed outline) -->
+  <rect x="200" y="234" width="140" height="72" rx="10" fill="#27273a" stroke="#a6e3a1" stroke-width="2" stroke-dasharray="6 3"/>
+  <text x="270" y="258" text-anchor="middle" font-size="10" fill="#a6e3a1" font-style="italic">optional</text>
+  <text x="270" y="274" text-anchor="middle" font-size="22" fill="#a6e3a1">⑨</text>
+  <text x="270" y="293" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#a6e3a1">UAC Triage</text>
+  <!-- no text line 3 — fits in box -->
+
+  <!-- Arrow 9→10 -->
+  <line x1="200" y1="270" x2="170" y2="270" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arrl)"/>
+
+  <!-- Step 10 -->
+  <rect x="30" y="234" width="140" height="72" rx="10" fill="#5b4dd6"/>
+  <text x="100" y="262" text-anchor="middle" font-size="22" fill="#fff">⑩</text>
+  <text x="100" y="280" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#fff">Cleanup</text>
+  <text x="100" y="295" text-anchor="middle" font-size="10" fill="#ddd">Unmount snapshot &amp; image</text>
+
+  <!-- Elbow arrow 10 → Done -->
+  <polyline points="100,306 100,390 480,390" fill="none" stroke="#7c6af7" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- ═══════════════════════════════════════════
+       DONE bubble  (y=390)
+  ════════════════════════════════════════════ -->
+  <rect x="404" y="362" width="152" height="56" rx="28" fill="#a6e3a1"/>
+  <text x="480" y="391" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e1e2e">✅  Done</text>
+  <text x="480" y="407" text-anchor="middle" font-size="10" fill="#1e1e2e">Collection complete</text>
+
+  <!-- ═══════════════════════════════════════════
+       Error exits (row 1 checks)
+  ════════════════════════════════════════════ -->
+
+  <!-- Exit from Step 1 (root / OS check) -->
+  <line x1="100" y1="162" x2="100" y2="192" stroke="#f38ba8" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arre)"/>
+  <rect x="30" y="192" width="140" height="34" rx="6" fill="#3a1c1c" stroke="#f38ba8" stroke-width="1.2"/>
+  <text x="100" y="214" text-anchor="middle" font-size="10" fill="#f38ba8">❌ Exit: not root / old OS</text>
+
+  <!-- Exit from Step 2 (snapshot fail) -->
+  <line x1="270" y1="162" x2="270" y2="192" stroke="#f38ba8" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arre)"/>
+  <rect x="200" y="192" width="140" height="34" rx="6" fill="#3a1c1c" stroke="#f38ba8" stroke-width="1.2"/>
+  <text x="270" y="214" text-anchor="middle" font-size="10" fill="#f38ba8">❌ Exit: snapshot failed</text>
+
+  <!-- Exit from Step 3 (mount fail) -->
+  <line x1="440" y1="162" x2="440" y2="192" stroke="#f38ba8" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#arre)"/>
+  <rect x="370" y="192" width="140" height="34" rx="6" fill="#3a1c1c" stroke="#f38ba8" stroke-width="1.2"/>
+  <text x="440" y="214" text-anchor="middle" font-size="10" fill="#f38ba8">❌ Exit: mount failed</text>
+
+  <!-- ═══════════════════════════════════════════
+       Legend
+  ════════════════════════════════════════════ -->
+  <rect x="30" y="460" width="370" height="60" rx="8" fill="#27273a"/>
+  <rect x="46"  y="477" width="18" height="12" rx="3" fill="#7c6af7"/>
+  <text x="72"  y="488" font-size="11" fill="#cdd6f4">Process step</text>
+  <rect x="150" y="477" width="18" height="12" rx="3" fill="#27273a" stroke="#a6e3a1" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text x="176" y="488" font-size="11" fill="#cdd6f4">Optional step</text>
+  <line x1="282" y1="483" x2="310" y2="483" stroke="#f38ba8" stroke-width="1.8" stroke-dasharray="4 2"/>
+  <text x="318" y="488" font-size="11" fill="#cdd6f4">Error exit</text>
+
+  <!-- Arrowhead markers -->
+  <defs>
+    <!-- right-pointing -->
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7c6af7"/>
+    </marker>
+    <!-- left-pointing -->
+    <marker id="arrl" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto">
+      <path d="M8,0 L8,6 L0,3 z" fill="#7c6af7"/>
+    </marker>
+    <!-- error (down) -->
+    <marker id="arre" markerWidth="8" markerHeight="8" refX="3" refY="6" orient="auto">
+      <path d="M0,0 L6,0 L3,8 z" fill="#f38ba8"/>
+    </marker>
+  </defs>
+</svg>

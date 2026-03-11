@@ -54,6 +54,9 @@ python3 MacGrabGUI.py
 6. **Logs the transfer** to a `.rsync.log` file alongside the sparse image
 7. **Cleans up** by unmounting both the snapshot and the sparse image when complete
 
+![MacGrab Process Flow](macgrab_flow.svg)
+
+
 ---
 
 ## Usage
