@@ -87,7 +87,7 @@ A few variables at the top of the script can be adjusted to suit your environmen
 
 ---
 
-## Optional: Run UAC Against the Snapshot
+## Optional: Triage - Run UAC to collect artifacts from the Snapshot
 
 The script includes a commented-out section to run [UAC (Unix Artifact Collector)](https://github.com/tclahr/uac) directly against the mounted snapshot. To enable it, uncomment and update the path in the script:
 
