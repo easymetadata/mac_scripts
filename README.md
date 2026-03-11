@@ -3,7 +3,6 @@
 A macOS Bash script for forensic data collection. It creates a local Time Machine snapshot, mounts it read-only, and copies all data into a self-sizing container (APFS sparse image by default). This can be on an mounted external or internal drive.
 
 The bash script lives off the land. No third-party tools required for a simple snapshot collection.
-
 ---
 
 ## Requirements
@@ -65,6 +64,13 @@ python3 MacGrabGUI.py
 sudo sh ./MacGrab.sh <target_directory>
 ```
 
+### Parameters
+
+| Parameter | Required | Description |
+|---|---|---|
+| `<target_directory>` | ✅ Yes | Path where the sparse image and log file will be written (e.g. `/Volumes/ExternalDrive`) |
+| `-h` | No | Display usage help and exit |
+
 **Example:**
 ```bash
 sudo sh ./MacGrab.sh /Volumes/ExternalDrive
@@ -109,3 +115,18 @@ cd /<path_to_uac>/uac-2.9.1/
 - **"Failed to create Time Machine snapshot"** → Ensure local snapshots are not disabled (`tmutil disablelocal`)
 - **"Failed to mount snapshot"** → Verify Terminal has Full Disk Access in System Settings
 - **Sparse image already exists** → The script will automatically delete and recreate it
+
+---
+
+## Changelog
+
+| Version | Date | Notes |
+|---|---|---|
+| **v1.1** | March 2026 | Added `MacGrabGUI.py` — Python/Tkinter point-and-click front-end |
+| **v1.0** | March 2025 | Initial release — snapshot creation, sparse image, rsync collection, UAC hook |
+
+---
+
+## License
+
+[MIT License](LICENSE) © 2024 EasyMetaData
